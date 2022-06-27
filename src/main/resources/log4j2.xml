@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+
+    <Properties>
+        <Property name="LOG_DIR">logs</Property>
+        <Property name="fileDateLayout">${date:yyyy-MM-dd}</Property>
+        <Property name="patternLayout">[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %tid{2} %-30logger -> %msg%n</Property>
+        <Property name="header">------------------------------ LOGFILE STARTED : %d{yyyy-MM-dd HH:mm:ss.SSS} ------------------------------%n%n</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${patternLayout}" header="${header}"/>
+        </Console>
+        <File name="latest-logfile" fileName="${LOG_DIR}/LatestRun.log" append="false">
+            <PatternLayout pattern="${patternLayout}" header="${header}"/>
+        </File>
+        <File name="today-logfile" fileName="${LOG_DIR}/${fileDateLayout}.log" append="true">
+            <PatternLayout pattern="${patternLayout}" header="${header}"/>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <!--Root logger-->
+        <Root level="trace">
+            <appender-ref ref="console" level="trace"/>
+            <appender-ref ref="latest-logfile"/>
+            <appender-ref ref="today-logfile"/>
+        </Root>
+    </Loggers>
+
+</Configuration>

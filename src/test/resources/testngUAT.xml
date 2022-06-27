@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Interview Tests" thread-count="10" parallel="classes">
+    <parameter name="browserName" value="chrome" />
+    <parameter name="isRemote" value="false" />
+    <test name="Interview Tests">
+        <groups>
+            <run>
+                <include name="Mercator"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.Interview.addHighestPriceItemToCartTest"/>
+        </classes>
+    </test>
+</suite>

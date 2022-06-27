@@ -1,0 +1,31 @@
+# Mac
+.DS_Store
+Desktop.ini
+._*
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# IDE Files
+/target
+.settings/
+.scannerwork/
+.classpath
+.project
+.idea
+
+# Package Files
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+
+# Logs
+/logs
+.log
+debug.log
+/allure-results
+
+# WebDriverManager
+**/wdm/
